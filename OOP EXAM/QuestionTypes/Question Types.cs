@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Questiontypes
+namespace questiontypes
 {
     public enum QuestionTypes { TrueorFalse, MCQ }
 }

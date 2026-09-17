@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OOP_EXAM.Question
+namespace OOP_EXAM.question
 {
     internal class Question
     {
