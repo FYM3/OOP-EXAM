@@ -33,8 +33,6 @@ namespace OOP_EXAM.answers
             AnswerId = answerId;
             AnswerText = answerText;
         }
-
-
-
+ 
     }
 }

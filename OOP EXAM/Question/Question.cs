@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_EXAM.answers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -38,12 +39,19 @@ namespace OOP_EXAM.question
 			}
 		}
 
+
+        public Answers[] AnswerList { get; set; }
+
+        public Answers RightAnswer { get; set; }
+
         public Question(string header, string body, int mark)
         {
             Header = header;
             Body = body;
             Mark = mark;
+            AnswerList = Array.Empty<Answers>();
         }
+
 
     }
 }
