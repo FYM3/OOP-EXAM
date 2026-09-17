@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Examtype
+namespace Questiontypes
 {
-    public enum ExamType { Final, Practical }
+    public enum QuestionTypes { TrueorFalse, MCQ }
 }
