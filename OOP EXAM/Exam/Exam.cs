@@ -1,4 +1,5 @@
-﻿using OOP_EXAM.subject;
+﻿using OOP_EXAM.question;
+using OOP_EXAM.subject;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,7 @@ namespace OOP_EXAM.exam
 		}
 
         public Subject Subject { get; set; }
+        public Question[] Questions { get; set; }
 
         public Exam(int timeofexam, int numberofQuestions, Subject subject)
         {
@@ -37,6 +39,7 @@ namespace OOP_EXAM.exam
             NumberofQuestions = numberofQuestions;
 
             Subject = subject;
+            Questions = Array.Empty<Question>();
         }
 
 

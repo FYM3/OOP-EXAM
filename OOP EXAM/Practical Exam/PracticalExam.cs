@@ -1,4 +1,5 @@
-﻿using OOP_EXAM.exam;
+﻿using OOP_EXAM.answers;
+using OOP_EXAM.exam;
 using OOP_EXAM.subject;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,14 @@ namespace OOP_EXAM.practical_Exam
 
         public override void ShowExam()
         {
-            // Not implementated yet
+            for (int i = 0; i < Questions.Length; i++)
+            {
+                Console.WriteLine($"Question {i + 1}:");
+                Console.WriteLine(Questions[i].Body);
+
+                Console.WriteLine($"Correct Answer => {Questions[i].RightAnswer?.AnswerText}");
+                Console.WriteLine();
+            }
         }
     }
 }
