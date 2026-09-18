@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_EXAM.subject;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -18,7 +19,6 @@ namespace OOP_EXAM.exam
 					_Timeofexam = value;
 			}
 		}
-		
 		public int NumberofQuestions
         {
 			get { return _NumberofQuestions; }
@@ -29,11 +29,14 @@ namespace OOP_EXAM.exam
 			}
 		}
 
+        public Subject Subject { get; set; }
 
-        public Exam(int timeofexam, int numberofQuestions)
+        public Exam(int timeofexam, int numberofQuestions, Subject subject)
         {
             Timeofexam = timeofexam;
             NumberofQuestions = numberofQuestions;
+
+            Subject = subject;
         }
 
 
