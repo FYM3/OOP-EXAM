@@ -1,57 +1,46 @@
-﻿using OOP_EXAM.answers;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using OOP_EXAM.Answers; // Make sure this matches your Answer class namespace
 
-namespace OOP_EXAM.question
+namespace OOP_EXAM.Questions
 {
-    internal class Question
+    public abstract class Question : ICloneable, IComparable<Question>
     {
-		private string _Header = string.Empty;
-        private string _Body = string.Empty;
-        private int _Mark;
+        public string Header { get; set; }
+        public string Body { get; set; }
+        public double Mark { get; set; }
 
-        public string Header
+        public Answer[] AnswerList { get; set; }
+
+        public Answer RightAnswer { get; set; }
+
+        public Answer UserAnswer { get; set; }
+
+        public Question() : this("No Header", "No Body", 0.0)
         {
-			get { return _Header; }
-			set
-			{
-				if (!string.IsNullOrEmpty(value))
-					_Header = value;
-			}
-		}
-		public string Body
-        {
-			get { return _Body; }
-			set
-			{
-				if (!string.IsNullOrEmpty(value))
-					_Body = value;
-			}
-		}
-        public int Mark
-        {
-			get { return _Mark; }
-			set
-			{
-				if (value >= 0)
-				_Mark = value;
-			}
-		}
+        }
 
-
-        public Answers[] AnswerList { get; set; }
-
-        public Answers? RightAnswer { get; set; }
-
-        public Question(string header, string body, int mark)
+        public Question(string header, string body, double mark)
         {
             Header = header;
             Body = body;
             Mark = mark;
-            AnswerList = Array.Empty<Answers>();
+
+            AnswerList = Array.Empty<Answer>();
         }
 
+        public abstract void Display();
 
+        public override string ToString()
+        {
+            return $"[{Header}] (Mark: {Mark})\n{Body}";
+        }
+
+        public abstract object Clone();
+
+        public int CompareTo(Question other)
+        {
+            if (other == null) return 1;
+            return this.Mark.CompareTo(other.Mark);
+        }
     }
 }

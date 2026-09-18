@@ -1,38 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace OOP_EXAM.answers
+namespace OOP_EXAM.Answers
 {
-    internal class Answers
+    public class Answer : ICloneable, IComparable<Answer>
     {
-		private int _AnswerId;
-		private string _AnswerText = string.Empty;
+        public int AnswerId { get; set; }
 
-        public int AnswerId
+        public string AnswerText { get; set; }
+
+        public Answer() : this(0, "No Answer Text")
         {
-            get { return _AnswerId; }
-            set
-            {
-                if (value >= 0)
-                    _AnswerId = value;
-            }
         }
-        public string AnswerText
-        {
-			get { return _AnswerText; }
-			set
-			{
-				if (!string.IsNullOrEmpty(value))
-					_AnswerText = value;
-			}
-		}
 
-        public Answers(int answerId, string answerText)
+        public Answer(int answerId, string answerText)
         {
             AnswerId = answerId;
             AnswerText = answerText;
         }
- 
+
+        public override string ToString()
+        {
+            return $"{AnswerId}. {AnswerText}";
+        }
+
+        public object Clone()
+        {
+            return new Answer(this.AnswerId, this.AnswerText);
+        }
+
+        public int CompareTo(Answer other)
+        {
+            if (other == null) return 1;
+            return this.AnswerId.CompareTo(other.AnswerId);
+        }
     }
 }

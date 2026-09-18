@@ -2,12 +2,16 @@
 using OOP_EXAM.Questions;
 using System.Reflection.PortableExecutable;
 
-public class MCQQuestion : Question
+public class TFQuestion : Question
 {
-    public MCQQuestion(string header, string body, double mark, Answer[] answers)
+    public TFQuestion(string header, string body, double mark)
         : base(header, body, mark)
     {
-        AnswerList = answers;
+        AnswerList = new Answer[]
+        {
+                new Answer(1, "True"),
+                new Answer(2, "False")
+        };
     }
 
     public override void Display()
@@ -21,13 +25,7 @@ public class MCQQuestion : Question
 
     public override object Clone()
     {
-        Answer[] clonedAnswers = new Answer[AnswerList.Length];
-        for (int i = 0; i < AnswerList.Length; i++)
-        {
-            clonedAnswers[i] = (Answer)AnswerList[i].Clone();
-        }
-
-        return new MCQQuestion(Header, Body, Mark, clonedAnswers)
+        return new TFQuestion(Header, Body, Mark)
         {
             RightAnswer = RightAnswer != null ? (Answer)RightAnswer.Clone() : null,
             UserAnswer = UserAnswer != null ? (Answer)UserAnswer.Clone() : null
